@@ -1,6 +1,13 @@
 
 // start when loaded
 
+$(document).ready(function () {
+  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a")); 
+  // moment.js
+})
+
+
+
 //select input add data 
 
 $(".saveBtn").on('click', function(){
@@ -13,5 +20,6 @@ $(".saveBtn").on('click', function(){
   console.log ("This is the text area: " + textArea);
 
   localStorage.setItem(timeBlock, textArea); // not working yet
-  console.log ("localStorage= " + timeBlock.localStorage)
+  console.log ("localStorage= " + localStorage.timeBlock);
 })
+
