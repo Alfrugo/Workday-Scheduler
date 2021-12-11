@@ -5,6 +5,42 @@ $(document).ready(function () {
   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));   // moment.js
 
 
+// loads localStorage  and build html time rows
+for (let i = 8; i <= 17; i++) {
+
+  var hourDisplay = i + " am";
+  if (i > 12) {hourDisplay = i-10 + " pm"}
+    
+  var timeBlock = document.querySelector("#container");
+  var rowEl = document.createElement("div");
+  rowEl.className = "row time-block";
+  rowEl.id = "h" + i;
+  timeBlock.appendChild(rowEl);
+
+  var hourBlock = document.querySelector("#h" + i);
+  var hourEl = document.createElement("div");
+  hourEl.className = "hour";
+  hourEl.textContent = hourDisplay;
+  hourBlock.appendChild(hourEl);
+
+  var descriptionBlock = document.querySelector("#h" + i);
+  var descriptionEl = document.createElement("textarea");
+  descriptionEl.className = "description";
+  descriptionBlock.appendChild(descriptionEl);
+
+  var btnBlock = document.querySelector("#h" + i);
+  var btnEl = document.createElement("button");
+  btnEl.className = "saveBtn";
+  btnEl.textContent = "S";
+  btnBlock.appendChild(btnEl);
+
+
+  $("#h" + i + " .description")
+    .val(localStorage
+    .getItem("h" + i));
+
+}
+
   //select input add data 
 
   $(".saveBtn").on('click', function () {
@@ -20,38 +56,6 @@ $(document).ready(function () {
     //console.log ("localStorage= " + localStorage[timeBlock, textArea]);
   })
 
-
-  // loads localStorage  and build html time rows
-  for (let i = 8; i <= 17; i++) {
-    $("#h" + i + " .description")
-      .val(localStorage
-      .getItem("h" + i));
-    
-      
-    var timeBlock = document.querySelector("#container");
-    var rowEl = document.createElement("div");
-    rowEl.className = "row time-block";
-    rowEl.id = "hDynamic" + i;
-    timeBlock.appendChild(rowEl);
-
-    var hourBlock = document.querySelector("#hDynamic" + i);
-    var hourEl = document.createElement("div");
-    hourEl.className = "hour";
-    hourEl.textContent = i + "am";
-    hourBlock.appendChild(hourEl);
-
-    var descriptionBlock = document.querySelector("#hDynamic" + i);
-    var descriptionEl = document.createElement("textarea");
-    descriptionEl.className = "description";
-    descriptionBlock.appendChild(descriptionEl);
-
-    var btnBlock = document.querySelector("#hDynamic" + i);
-    var btnEl = document.createElement("button");
-    btnEl.className = "saveBtn";
-    btnEl.textContent = "S";
-    btnBlock.appendChild(btnEl);
-
-  }
 
   function colorHour() {
     //get current number of hours.
