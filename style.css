@@ -42,7 +42,7 @@ textarea{
   border-width: 3px;
   border-width: 0 0 5px 0;
   border-color: rgb(255, 255, 255);
-  background-color: olive;
+  /* background-color: olive; This overrides the momen.js */
 }
 
 .time-block{
