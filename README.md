@@ -29,4 +29,15 @@ THEN the saved events persist
 ![Work Scheduler Mockup](https://user-images.githubusercontent.com/36056407/145688289-50a469ab-5f3b-4fc2-94e4-b30d6656b816.png)
 
 
+## Links
+
+Repo https://github.com/Alfrugo/Workday-Scheduler
+Live https://alfrugo.github.io/Workday-Scheduler/
+
+
+## by Alfredo Diez 2021
+
+
+
+
 

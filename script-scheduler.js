@@ -9,7 +9,7 @@ $(document).ready(function () {
 for (let i = 8; i <= 17; i++) {
 
   var hourDisplay = i + " am";
-  if (i > 12) {hourDisplay = i-10 + " pm"}
+  if (i > 12) {hourDisplay = i-12 + " pm"}
     
   var timeBlock = document.querySelector("#container");
   var rowEl = document.createElement("div");
