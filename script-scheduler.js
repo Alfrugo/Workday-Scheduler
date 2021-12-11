@@ -1,10 +1,8 @@
 
 // start when loaded
-
 $(document).ready(function () {
-  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
-  // moment.js
 
+  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));   // moment.js
 
 
   //select input add data 
@@ -23,11 +21,36 @@ $(document).ready(function () {
   })
 
 
-  // loads localStorage  
+  // loads localStorage  and build html time rows
   for (let i = 8; i <= 17; i++) {
     $("#h" + i + " .description")
       .val(localStorage
-        .getItem("h" + i));
+      .getItem("h" + i));
+    
+      
+    var timeBlock = document.querySelector("#container");
+    var rowEl = document.createElement("div");
+    rowEl.className = "row time-block";
+    rowEl.id = "hDynamic" + i;
+    timeBlock.appendChild(rowEl);
+
+    var hourBlock = document.querySelector("#hDynamic" + i);
+    var hourEl = document.createElement("div");
+    hourEl.className = "hour";
+    hourEl.textContent = i + "am";
+    hourBlock.appendChild(hourEl);
+
+    var descriptionBlock = document.querySelector("#hDynamic" + i);
+    var descriptionEl = document.createElement("textarea");
+    descriptionEl.className = "description";
+    descriptionBlock.appendChild(descriptionEl);
+
+    var btnBlock = document.querySelector("#hDynamic" + i);
+    var btnEl = document.createElement("button");
+    btnEl.className = "saveBtn";
+    btnEl.textContent = "S";
+    btnBlock.appendChild(btnEl);
+
   }
 
   function colorHour() {
